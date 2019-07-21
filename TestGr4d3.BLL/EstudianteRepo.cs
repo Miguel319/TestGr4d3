@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TestGr4d3.BOL;
@@ -19,6 +20,7 @@ namespace TestGr4d3.BLL
 
         public async Task Agregar(Estudiante Estudiante)
         {
+            Estudiante.FechaIngreso = DateTime.Now;
             await _context.Estudiantes.AddAsync(Estudiante);
             await _context.SaveChangesAsync();
         }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using TestGr4d3.BOL;
@@ -19,6 +20,7 @@ namespace TestGr4d3.BLL
 
         public async Task Agregar(Asignatura Asignatura)
         {
+            Asignatura.AgregadaEn = DateTime.Now;
             await _context.Asignaturas.AddAsync(Asignatura);
             await _context.SaveChangesAsync();
         }

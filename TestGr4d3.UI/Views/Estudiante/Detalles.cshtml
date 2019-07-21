@@ -1,0 +1,62 @@
+﻿@model TestGr4d3.UI.ViewModels.EstudianteVM.EstudianteVMDetalles
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+
+
+<div class="col-md-6">
+     <h1>Detalles de @Model.Nombre</h1>
+    <hr />
+    
+    <img src="@Model.ImagenURL" class="card card-img-top mb-3" id="imagen" />
+    
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class="col-sm-12">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Apellido)
+        </dt>
+        <dd class="col-sm-12">
+            @Html.DisplayFor(model => model.Apellido)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Edad)
+        </dt>
+        <dd class="col-sm-12">
+            @Html.DisplayFor(model => model.Edad)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Curso)
+        </dt>
+        <dd class="col-sm-12">
+            @Html.DisplayFor(model => model.Curso)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ImagenURL)
+        </dt>
+        <dd class="col-sm-12">
+            @Html.DisplayFor(model => model.ImagenURL)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaIngreso)
+        </dt>
+        <dd class="col-sm-12">
+            @Html.DisplayFor(model => model.FechaIngreso)
+        </dd>
+    </dl>
+    <div class="row">
+        <div class="col-md-6">
+            <a asp-controller="Estudiante" asp-action="Actualizar" asp-route-id="@Model.Id" class="btn btn-info btn-block"><i class="fas fa-edit"></i> Actualizar</a>
+        </div>
+        <div class="col-md-6">
+            <a asp-action="Index" class="btn btn-danger btn-block"><i class="far fa-window-close"></i> Cancelar</a>
+        </div>
+    </div>
+
+</div>

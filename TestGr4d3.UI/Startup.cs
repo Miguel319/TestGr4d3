@@ -5,7 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TestGr4d3.BLL;
 using TestGr4d3.DAL.Contexto;
+using TestGr4d3.DAL.IRepositorio;
 
 namespace TestGr4d3.UI
 {
@@ -27,6 +29,15 @@ namespace TestGr4d3.UI
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            #region LogicaDeNegocios
+
+            services.AddScoped<IEstudianteRepo, EstudianteRepo>();
+            services.AddScoped<IAsignaturaRepo, AsignaturaRepo>();
+            services.AddScoped<ICalificacionRepo, CalificacionRepo>();
+            services.AddScoped<IExamenRepo, ExamenRepo>();
+
+            #endregion
 
             services.AddDbContext<DataContext>(x => 
                 x.UseSqlServer(Configuration.GetConnectionString("Conexion")));
