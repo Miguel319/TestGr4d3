@@ -1,0 +1,39 @@
+﻿@model TestGr4d3.UI.ViewModels.CalificacionVM.CalificacionVMIndex
+
+@{
+    ViewData["Title"] = "Actualizar";
+}
+
+<h1 class="text-center">Actualizar calificación</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Actualizar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Descripcion" class="control-label"></label>
+                <input asp-for="Descripcion" class="form-control" />
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Feedback" class="control-label"></label>
+                <input asp-for="Feedback" class="form-control" />
+                <span asp-validation-for="Feedback" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 form-group">
+                    <button class="btn btn-success btn-block" type="submit"><i class="fas fa-database"></i> Guardar</button>
+                </div>
+                <div class="col-md-6 form-group">
+                    <a asp-action="Index" class="btn btn-danger btn-block"><i class="far fa-window-close"></i> Cancelar</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
