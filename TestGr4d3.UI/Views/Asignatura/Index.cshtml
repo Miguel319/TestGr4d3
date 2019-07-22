@@ -1,0 +1,41 @@
+﻿@model IEnumerable<TestGr4d3.UI.ViewModels.AsignaturaVM.AsignaturaIndexVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">Asignaturas</h1>
+<hr />
+<a asp-action="Agregar" class="btn btn-primary mb-4"><i class="far fa-plus-square"></i> Agregar</a>
+
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 col-sm-3 col-lg-3 col-xl-3 mb-4">
+            <div class="card bg-light">
+                <div class="card-header text-center">
+                    <div class="row">
+                        <p class="ml-3"><b>@item.Nombre</b></p>
+                        <div class="ml-auto mr-3">
+                            <a asp-action="Actualizar" asp-route-id="@item.Id" class="btn btn-info" asp-controller="Asignatura"><i class="fas fa-marker"></i></a>
+                            <a class="btn btn-danger mr-0" asp-action="Eliminar" asp-controller="Asignatura" asp-route-id="@item.Id" onclick="return confirmar();"><i class="far fa-trash-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <a asp-controller="Asignatura" asp-action="Detalles" asp-route-id="@item.Id">
+                        <img src="@item.ImagenURL" class="card-img-top" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<script>
+    function confirmar() {
+        return confirm('¿Seguro/a que quieres eliminar esta asignatura?');
+    }
+</script>

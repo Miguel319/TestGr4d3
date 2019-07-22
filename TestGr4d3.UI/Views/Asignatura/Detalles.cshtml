@@ -1,39 +1,21 @@
-﻿@model TestGr4d3.UI.ViewModels.EstudianteVM.EstudianteVMDetalles
+﻿@model TestGr4d3.UI.ViewModels.AsignaturaVM.AsignaturaVMDetalles
 
 @{
     ViewData["Title"] = "Detalles";
 }
 
-<div class="col-md-6">
-     <h1>Detalles de @Model.Nombre</h1>
-    <hr />
-    
-    <img src="@Model.ImagenURL" class="card card-img-top mb-3" id="imagen" />
-    
+
+<div>
+    <h1 class="text-center">Detalles de @Model.Nombre</h1>
+
+    <hr/>
     <dl class="row">
+        <img src="@Model.ImagenURL" class="card card-img-top mb-3" id="imagen"/>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Nombre)
         </dt>
         <dd class="col-sm-12">
             @Html.DisplayFor(model => model.Nombre)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Apellido)
-        </dt>
-        <dd class="col-sm-12">
-            @Html.DisplayFor(model => model.Apellido)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Edad)
-        </dt>
-        <dd class="col-sm-12">
-            @Html.DisplayFor(model => model.Edad)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Curso)
-        </dt>
-        <dd class="col-sm-12">
-            @Html.DisplayFor(model => model.Curso)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ImagenURL)
@@ -42,10 +24,10 @@
             @Html.DisplayFor(model => model.ImagenURL)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FechaIngreso)
+            @Html.DisplayNameFor(model => model.AgregadaEn)
         </dt>
         <dd class="col-sm-12">
-            @Html.DisplayFor(model => model.FechaIngreso)
+            @Html.DisplayFor(model => model.AgregadaEn)
         </dd>
     </dl>
     <div class="row">
@@ -56,5 +38,4 @@
             <a asp-action="Index" class="btn btn-danger btn-block"><i class="far fa-window-close"></i> Cancelar</a>
         </div>
     </div>
-
 </div>
