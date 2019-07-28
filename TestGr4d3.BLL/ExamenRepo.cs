@@ -13,10 +13,18 @@ namespace TestGr4d3.BLL
         public ExamenRepo(DataContext context) : base(context) { }
 
         public async Task<IEnumerable<Examen>> ObtenerTodos()
-            => await _context.Examenes.ToListAsync();
+            => await _context.Examenes
+                .Include(x => x.Calificacion)
+                .Include(x => x.Asignatura)
+                .Include(x => x.Estudiante)
+                .ToListAsync();
 
         public async Task<Examen> Obtener(int id)
-            => await _context.Examenes.FindAsync(id);
+            => await _context.Examenes
+                .Include(x => x.Calificacion)
+                .Include(x => x.Asignatura)
+                .Include(x => x.Estudiante)
+                .FirstOrDefaultAsync(x => x.Id == id);
 
         public async Task Agregar(Examen Examen)
         {

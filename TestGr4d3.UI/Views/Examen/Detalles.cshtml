@@ -1,0 +1,51 @@
+﻿@model TestGr4d3.UI.ViewModels.ExamenVM.ExamenDetallesVM
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+
+    <div class="col-md-6">
+        <h1 class="text-center">Detalles del examen</h1>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Calificacion)
+            </dt>
+            <dd class="col-sm-12">
+                @Html.DisplayFor(model => model.Calificacion)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Estudiante)
+            </dt>
+            <dd class="col-sm-12">
+                @Html.DisplayFor(model => model.Estudiante)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Asignatura)
+            </dt>
+            <dd class="col-sm-12">
+                @Html.DisplayFor(model => model.Asignatura)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.AgregadoEn)
+            </dt>
+            <dd class="col-sm-12">
+                @Html.DisplayFor(model => model.AgregadoEn)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Comentario)
+            </dt>
+            <dd class="col-sm-12">
+                @Html.DisplayFor(model => model.Comentario)
+            </dd>
+        </dl>
+        <div class="row">
+            <div class="col-md-6">
+                <a asp-controller="Examen" asp-action="Actualizar" asp-route-id="@Model.Id" class="btn btn-info btn-block"><i class="fas fa-edit"></i> Actualizar</a>
+            </div>
+            <div class="col-md-6">
+                <a asp-action="Index" class="btn btn-danger btn-block"><i class="far fa-window-close"></i> Cancelar</a>
+            </div>
+        </div>
+    </div>
