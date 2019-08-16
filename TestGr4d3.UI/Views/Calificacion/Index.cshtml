@@ -5,7 +5,16 @@
 }
 
 <h1 class="text-center">Calificaciones</h1>
-<hr/>
+<hr />
+
+@if (TempData["ErrorCompania"] != null)
+{
+    <div class="alert alert-dismissable alert-danger">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        @TempData["ErrorCalificacion"].ToString()
+    </div>
+}
+
 
 <table class="table table-bordered table-hover">
     <thead>
@@ -36,7 +45,7 @@
                         <a asp-action="Actualizar" asp-route-id="@item.Id" class="btn btn-outline-info col-md-6"><i class="fas fa-edit"></i> Actualizar</a>
                         <a asp-action="Eliminar" asp-route-id="@item.Id" onclick="return confirmar();" class="btn btn-outline-danger col-md-6"><i class="far fa-window-close"></i> Eliminar</a>
                     </div>
-                        
+
                 </td>
             </tr>
         }

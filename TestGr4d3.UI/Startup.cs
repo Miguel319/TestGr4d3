@@ -13,10 +13,7 @@ namespace TestGr4d3.UI
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+        public Startup(IConfiguration configuration) => Configuration = configuration;
 
         public IConfiguration Configuration { get; }
 
@@ -30,17 +27,17 @@ namespace TestGr4d3.UI
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            #region LogicaDeNegocios
 
+            #region LogicaDeNegocios
             services.AddScoped<IEstudianteRepo, EstudianteRepo>();
             services.AddScoped<IAsignaturaRepo, AsignaturaRepo>();
             services.AddScoped<ICalificacionRepo, CalificacionRepo>();
             services.AddScoped<IExamenRepo, ExamenRepo>();
-
             #endregion
 
             services.AddDbContext<DataContext>(x => 
                 x.UseSqlServer(Configuration.GetConnectionString("Conexion")));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

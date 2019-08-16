@@ -5,7 +5,14 @@
 }
 
 <h1 class="text-center">Estudiantes</h1>
-<hr/>
+<hr />
+@if (TempData["ErrorCompania"] != null)
+{
+    <div class="alert alert-dismissable alert-danger">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        @TempData["ErrorEstudiante"].ToString()
+    </div>
+}
 <a asp-action="Agregar" class="btn btn-primary mb-4"><i class="far fa-plus-square"></i> Agregar</a>
 
 
